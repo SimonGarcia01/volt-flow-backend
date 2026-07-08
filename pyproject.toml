@@ -1,7 +1,7 @@
 [project]
 name = "volt-flow-backend"
 version = "0.1.0"
-description = "Add your description here"
+description = "Volt-Flow Backend as a ocpp server and a flutter client backend"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
@@ -9,9 +9,11 @@ dependencies = [
     "fastapi>=0.139.0",
     "ocpp>=2.1.0",
     "pydantic>=2.13.4",
+    "psycopg[binary]>=3.2.0",
     "python-dotenv>=1.2.2",
     "sqlalchemy>=2.0.51",
     "websockets>=16.0",
+    "pydantic-settings>=2.14.2",
 ]
 
 [dependency-groups]
