@@ -13,6 +13,11 @@ class Settings(BaseSettings):
 
     app_name: str = "Volt Flow Backend"
     app_env: str = "development"
+    app_version: str = "0.1.0"
+
+    api_host: str = "127.0.0.1"
+    api_port: int = 8000
+    api_reload: bool = True
 
     postgres_user: str
     postgres_password: str
@@ -27,6 +32,7 @@ class Settings(BaseSettings):
     database_echo: bool = False
     database_pool_size: int = 5
     database_max_overflow: int = 10
+    create_db_tables_on_startup: bool = True
 
     @property
     def database_url(self) -> str:

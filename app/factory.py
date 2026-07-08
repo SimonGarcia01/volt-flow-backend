@@ -1,11 +1,20 @@
+from collections.abc import Callable
+from contextlib import AbstractAsyncContextManager
+
 from fastapi import FastAPI
 
+from app.core.config import settings
 
-def create_app() -> FastAPI:
+
+AppLifespan = Callable[[FastAPI], AbstractAsyncContextManager[None]]
+
+
+def create_app(lifespan: AppLifespan | None = None) -> FastAPI:
     app = FastAPI(
-        title="Volt Flow Backend",
-        version="0.1.0",
+        title=settings.app_name,
+        version=settings.app_version,
         description="Backend for managing OCPP charge points.",
+        lifespan=lifespan,
     )
 
     return app
