@@ -7,9 +7,12 @@ from fastapi import FastAPI
 from app.core.config import settings
 from app.database.base import Base
 from app.database.database import engine
+from app.database.model_registry import import_all_models
 from app.factory import create_app
 
+
 def create_database_tables() -> None:
+    import_all_models()
     Base.metadata.create_all(bind=engine)
 
 
