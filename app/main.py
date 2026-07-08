@@ -9,10 +9,7 @@ from app.database.base import Base
 from app.database.database import engine
 from app.factory import create_app
 
-
 def create_database_tables() -> None:
-    import app.auth.models  # noqa: F401
-
     Base.metadata.create_all(bind=engine)
 
 
@@ -22,7 +19,6 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
         create_database_tables()
 
     yield
-
 
 app = create_app(lifespan=lifespan)
 
