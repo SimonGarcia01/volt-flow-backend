@@ -7,7 +7,7 @@ router = APIRouter(prefix="/ocpp", tags=["ocpp"])
 @router.websocket("/{charge_point_id}")
 async def ocpp_endpoint(websocket: WebSocket, charge_point_id: str):
     #Accept the WebSocket connection
-    await websocket.accept()
+    await websocket.accept(subprotocol="ocpp1.6")
     try:
         while True:
             data = await websocket.receive_text()

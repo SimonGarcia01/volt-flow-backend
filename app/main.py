@@ -40,3 +40,7 @@ if __name__ == "__main__":
         port=settings.api_port,
         reload=settings.api_reload,
     )
+
+@app.get("/")
+async def root():
+    return {"status": "running"}
