@@ -34,6 +34,9 @@ class Settings(BaseSettings):
     database_echo: bool = False
     database_pool_size: int = 5
     database_max_overflow: int = 10
+    database_connect_timeout_seconds: int = 5
+    database_connection_timeout_seconds: int = 15
+    database_connection_retry_interval_seconds: int = 2
     create_db_tables_on_startup: bool = True
 
     #The @property decorator allows us to use the database_url as a property of the settings object
