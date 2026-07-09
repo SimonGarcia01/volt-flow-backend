@@ -1,4 +1,4 @@
 from fastapi import APIRouter
 
-
-router = APIRouter(prefix="/charging", tags=["charging"])
+#Creates the router for charging
+router = APIRouter(prefix="/charging", tags=["Charging"])
